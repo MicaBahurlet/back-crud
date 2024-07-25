@@ -53,7 +53,7 @@ UserSchema.methods.toJSON = function() {
     return usuario; //usuario
 }
 
-const Usuario: Model<Iuser> = model('Usuario', UserSchema);
+const Usuario: Model<Iuser> = model("Usuario", UserSchema);
 export default Usuario;
 
 
