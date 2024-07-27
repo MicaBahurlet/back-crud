@@ -1,10 +1,10 @@
 
-import Usuario, { Iuser } from "../models/usuario";
+import Usuario, { IUser } from "../models/usuario";
 import { sendEmail } from "../meiler/meiler";
 
 export const existeEmail = async (email: string): Promise<void> => {
 
-    const existeMail: Iuser | null = await Usuario.findOne({ email });
+    const existeMail: IUser | null = await Usuario.findOne({ email });
     if (existeMail && existeMail.verified) {
         throw new Error(`El email ${email} ya existe`);
     }

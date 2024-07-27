@@ -4,15 +4,21 @@ import {dbConnection} from "../database/config";
 
 import authRoutes from "../routes/auth";
 
+import ordersRoutes from "../routes/orders";
+
+
 export class Server {
     app: Express;
     port: String | number | undefined;
     authPath: string;
+    ordersPath: string;
+
 
     constructor() {
         this.app = express(); //se refiere a esta instancia que se ejecuta ahora, no a todaa la app.
         this.port = process.env.PORT; //accede a la variable de entorno
-        this.authPath = "/auth";
+        this.authPath = "/auth"; //subdominio de auth
+        this.ordersPath = "/orders";// subdominio de orders
 
         this.conectarDB();
         this.middlewares();
@@ -31,6 +37,7 @@ export class Server {
 
     routes() : void {
         this.app.use(this.authPath, authRoutes);
+        this.app.use(this.ordersPath, ordersRoutes); 
     }
 
     listen() : void {

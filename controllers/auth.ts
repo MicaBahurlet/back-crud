@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import Usuario, {Iuser} from "../models/usuario";
+import Usuario, {IUser} from "../models/usuario";
 import bcryptjs from "bcryptjs";
 import { ROLES } from "../helpers/constants";
 import randomstring from "randomstring";
@@ -8,7 +8,7 @@ import generarJWT from "../helpers/generarJWT";
 
 export const register = async (req: Request, res: Response): Promise<void> => {
 
-    const { nombre, email, password, rol }: Iuser = req.body;
+    const { nombre, email, password, rol }: IUser = req.body;
 
     //creo una nueva instancia del modelo usuario
    const usuario= new Usuario({ nombre, email, password, rol });  
@@ -37,7 +37,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
 export const login = async (req: Request, res: Response):Promise<void> => {
 
-    const { email, password }: Iuser = req.body;
+    const { email, password }: IUser = req.body;
 
     // antes de ver contraseña tenemos que saber si estrá registrado, si ya existe el email
     try{

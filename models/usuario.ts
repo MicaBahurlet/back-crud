@@ -6,7 +6,7 @@ import {ROLES } from "../helpers/constants";
 
 //interface: 
 
-export interface Iuser {
+export interface IUser {
     nombre: string;
     email: string;
     password: string;
@@ -18,7 +18,7 @@ export interface Iuser {
 
 //Schema:
 
-const UserSchema = new Schema<Iuser>({
+const UserSchema = new Schema<IUser>({
     nombre: {
         type: String,
         required: [true, "El nombre es obligatorio"]
@@ -53,7 +53,7 @@ UserSchema.methods.toJSON = function() {
     return usuario; //usuario
 }
 
-const Usuario: Model<Iuser> = model("Usuario", UserSchema);
+const Usuario: Model<IUser> = model("Usuario", UserSchema);
 export default Usuario;
 
 
