@@ -30,18 +30,21 @@ export class Server {
     }
 
         // va a interpretar la petición en json y retornarla en json tambien 
-    // middlewares() : void {
-    //     this.app.use(cors());
-    //     this.app.use(express.json());
-    // }
-
     middlewares() : void {
-        this.app.use(cors({
-            origin: '*' // Permite todos los orígenes
-        }));
+        this.app.use(cors());
         this.app.use(express.json());
     }
 
+    //antes tenía esto pero tampoco lo solucionó
+    // middlewares(): void {
+    //     this.app.use(cors({
+    //         origin: '*', // Permite todos los orígenes
+    //         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    //         allowedHeaders: ['Content-Type', 'Authorization'],
+    //         optionsSuccessStatus: 204 // Para evitar problemas con algunos navegadores (como IE) que manejan mal el código de estado 204
+    //     }));
+    //     this.app.use(express.json());
+    // }
     routes() : void {
         this.app.use(this.authPath, authRoutes);
         this.app.use(this.ordersPath, ordersRoutes); 
