@@ -30,8 +30,15 @@ export class Server {
     }
 
         // va a interpretar la petición en json y retornarla en json tambien 
+    // middlewares() : void {
+    //     this.app.use(cors());
+    //     this.app.use(express.json());
+    // }
+
     middlewares() : void {
-        this.app.use(cors());
+        this.app.use(cors({
+            origin: '*' // Permite todos los orígenes
+        }));
         this.app.use(express.json());
     }
 
