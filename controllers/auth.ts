@@ -44,7 +44,7 @@ export const login = async (req: Request, res: Response):Promise<void> => {
         const usuario = await Usuario.findOne({ email });
 
         if (!usuario) { //si no existe el usuario aviso y luego retorno
-            res.status(400).json({ msg: "El usuario no existe" });
+            res.status(400).json({ msg: "El usuario no existe. Por favor cree una cuenta." });
             return;
         }
 
