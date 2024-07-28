@@ -16,7 +16,7 @@ export const sendEmail = async (to: string, code: string): Promise<void> => {
             from: "CRUD-SHOES - micabahurletgo@gmail.com",
             to,
             subject: 'Código de verificación',
-            text: `Tu código de verificación para CRUD SHOES: es ${code}`
+            text: `Hola! estás probando mi integrador fullstack. Tu código de verificación para CRUD SHOES: es ${code}`
         };
         await transporter.sendMail(mailOptions);
         console.log('Email enviado');
