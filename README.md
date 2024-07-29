@@ -9,6 +9,7 @@
 Enviar en el boddy un JSON: 
 
 {
+
     "nombre": "string",
     "email": "email",
     "password": "password"
@@ -23,6 +24,7 @@ Devolverá la información del nuevo usuario registrado.
 Enviar en el boddy un JSON: 
 
 {
+    
     "email": "email",
     "password": "password"
 }
@@ -34,6 +36,7 @@ Enviar en el boddy un JSON:
 Enviar en el boddy un JSON: 
  
 {
+    
     "nombre": "string",
     "email": "email",
     "code": "code"
