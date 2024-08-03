@@ -31,12 +31,15 @@ export class Server {
 
         // va a interpretar la petición en json y retornarla en json tambien 
     middlewares() : void {
-        this.app.use(cors());
-        this.app.use(express.json());
-        this.app.use(function (req, res, next) {
+        var corsOptions = {
+            origin: '*',
+            optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+        }
+          
+        this.app.use(cors(corsOptions));
 
-            res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5179');
-        });
+        this.app.use(express.json());
+
     }
 
     routes() : void {
