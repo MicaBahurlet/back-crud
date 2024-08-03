@@ -31,12 +31,7 @@ export class Server {
 
         // va a interpretar la petición en json y retornarla en json tambien 
     middlewares() : void {
-        var corsOptions = {
-            origin: '*',
-            optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-        }
-          
-        this.app.use(cors(corsOptions));
+
 
         this.app.use(express.json());
 
