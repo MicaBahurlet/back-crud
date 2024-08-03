@@ -31,8 +31,8 @@ export class Server {
 
         // va a interpretar la petición en json y retornarla en json tambien 
     middlewares() : void {
-
-
+        this.app.use(cors({
+            origin: "*",}));
         this.app.use(express.json());
 
     }
