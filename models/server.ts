@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import {dbConnection} from "../database/config";
 
@@ -38,6 +38,11 @@ export class Server {
     routes() : void {
         this.app.use(this.authPath, authRoutes);
         this.app.use(this.ordersPath, ordersRoutes); 
+
+        // Endpoint para indicar que el deploy fue exitoso
+        this.app.get("/", (req: Request, res: Response) => {
+            res.send("CRUD API");
+        });
     }
 
     listen() : void {
