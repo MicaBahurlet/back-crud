@@ -33,6 +33,10 @@ export class Server {
     middlewares() : void {
         this.app.use(cors());
         this.app.use(express.json());
+        this.app.use(function (req, res, next) {
+
+            res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5179');
+        });
     }
 
     routes() : void {
