@@ -16,7 +16,7 @@ export class Server {
 
     constructor() {
         this.app = express(); //se refiere a esta instancia que se ejecuta ahora, no a todaa la app.
-        this.port = process.env.PORT; //accede a la variable de entorno
+        this.port = process.env.PORT || 6060; //accede a la variable de entorno
         this.authPath = "/auth"; //subdominio de auth
         this.ordersPath = "/orders";// subdominio de orders
         console.log('Base de datos conectada');
@@ -27,6 +27,7 @@ export class Server {
     }
 
     async conectarDB() : Promise<void> {
+        console.log('esperando respuesta');
         await dbConnection();
     }
 
