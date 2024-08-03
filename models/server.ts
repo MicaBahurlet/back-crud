@@ -19,6 +19,7 @@ export class Server {
         this.port = process.env.PORT; //accede a la variable de entorno
         this.authPath = "/auth"; //subdominio de auth
         this.ordersPath = "/orders";// subdominio de orders
+        console.log('Base de datos conectada');
 
         this.conectarDB();
         this.middlewares();
