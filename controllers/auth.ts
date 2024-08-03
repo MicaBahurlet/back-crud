@@ -38,7 +38,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 export const login = async (req: Request, res: Response):Promise<void> => {
 
     const { email, password }: IUser = req.body;
-
+    console.log(email, password);
     // antes de ver contraseña tenemos que saber si estrá registrado, si ya existe el email
     try{
         const usuario = await Usuario.findOne({ email });
